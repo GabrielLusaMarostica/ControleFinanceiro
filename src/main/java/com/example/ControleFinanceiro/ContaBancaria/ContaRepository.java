@@ -1,4 +1,6 @@
 package com.example.ControleFinanceiro.ContaBancaria;
 
-public interface ContaRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ContaRepository extends JpaRepository<ContaModel, Long> {
 }
