@@ -1,8 +1,7 @@
 package com.example.ControleFinanceiro.ContaBancaria;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
-import jakarta.persistence.OneToMany;
+import com.example.ControleFinanceiro.Investimento.InvestimentoModel;
+import com.example.ControleFinanceiro.Transacao.TransacaoModel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,7 +19,7 @@ public class ContaDTO {
     private String nomeDaConta;
     private TipoConta TipoConta;
     private Long numero;
-    private List<Transacao> transacoes = new ArrayList<>();
-    private List<Investimento> investimentos = new ArrayList<>();
+    private List<TransacaoModel> transacoes = new ArrayList<>();
+    private List<InvestimentoModel> investimentos = new ArrayList<>();
 
 }
