@@ -3,6 +3,9 @@ package com.example.ControleFinanceiro.ContaBancaria;
 import com.example.ControleFinanceiro.Investimento.InvestimentoModel;
 import com.example.ControleFinanceiro.Transacao.TransacaoModel;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -26,15 +29,20 @@ public class ContaModel {
     @Column(name = "id")
     private Long id;
 
+    @NotNull(message = "O valor do investimento é obrigatório")
     @Column(name = "saldo")
     private double saldo;
 
+    @NotBlank(message = "O valor nao pode ser branco")
     @Column(name = "nomeDaConta")
     private String nomeDaConta;
 
+    @NotNull
     @Column(name = "tipoDaConta")
     private TipoConta TipoConta;
 
+    @NotNull
+    @Positive
     @Column(name = "numeroDaConta")
     private Long numero;
 

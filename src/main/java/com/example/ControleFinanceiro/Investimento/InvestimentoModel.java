@@ -2,6 +2,9 @@ package com.example.ControleFinanceiro.Investimento;
 
 import com.example.ControleFinanceiro.ContaBancaria.ContaModel;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.DecimalMin;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,9 +26,14 @@ public class InvestimentoModel {
     @Column(name = "tipo")
     private String tipo; // ex: "Tesouro Direto"
 
+    @NotNull(message = "O valor do investimento é obrigatório")
+    @Positive(message = "O valor deve ser maior que zero")
     @Column(name = "valor")
     private double valor;
 
+
+    @NotNull(message = "A taxa de juros é obrigatória")
+    @DecimalMin(value = "0.01", message = "A taxa deve ser maior que zero")
     @Column(name = "taxaJuros")
     private double taxaJuros; // ex: 0.12 para 12% ao ano
 

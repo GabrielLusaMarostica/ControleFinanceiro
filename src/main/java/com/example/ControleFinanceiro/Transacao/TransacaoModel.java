@@ -2,6 +2,8 @@ package com.example.ControleFinanceiro.Transacao;
 
 import com.example.ControleFinanceiro.ContaBancaria.ContaModel;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,6 +25,7 @@ public class TransacaoModel {
     @Column(name = "descricao")
     private String descricao;
 
+    @NotNull(message = "O valor do investimento é obrigatório")
     @Column(name = "valor")
     private double valor;
 
