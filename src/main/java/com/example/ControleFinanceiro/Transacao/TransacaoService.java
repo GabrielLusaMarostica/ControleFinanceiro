@@ -3,6 +3,9 @@ package com.example.ControleFinanceiro.Transacao;
 import com.example.ControleFinanceiro.ContaBancaria.ContaModel;
 import com.example.ControleFinanceiro.ContaBancaria.ContaRepository;
 
+import java.util.List;
+import java.util.Optional;
+
 public class TransacaoService {
     private final ContaRepository contaRepository;
     private final TransacaoRepository transacaoRepository;
@@ -20,5 +23,15 @@ public class TransacaoService {
         contaRepository.save(conta);
 
         return transacaoRepository.save(transacaoModel);
+    }
+
+    public List<TransacaoModel> listarTransacoes(){
+        return transacaoRepository.findAll();
+    }
+
+    public TransacaoModel listarPorId(Long id){
+            return transacaoRepository.findById(id)
+                    .orElseThrow(() -> new RuntimeException("Conta não encontrada"));
+
     }
 }
